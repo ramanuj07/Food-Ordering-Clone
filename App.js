@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = (
-  <>
-    <h1 id="heading" tabIndex={4}>
-      My name is Ramanuj Jindal
-    </h1>
+const Title = () => (
+  <h1 id="heading" tabIndex={4}>
+    My name is Ramanuj Jindal
+  </h1>
+);
 
-    <p>I was a swimmer at one time but now my goals are changed completely</p>
+const anyNumber = 10010010;
+
+// Functional component
+const HeadingComponent = () => (
+  <>
+    <h1 className="heading">Heyyy Functional Component beauty</h1>
+    <Title />
+    {anyNumber}
   </>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.querySelector("#root"));
 
-root.render(heading);
+root.render(<HeadingComponent />);
