@@ -36,11 +36,14 @@
 }
 
 .restaurant--card {
-  width: 300px;
-  height: 300px;
-  border: 1px solid black;
+  width: 20.5rem;
   padding: 1rem;
   margin: 1rem;
+}
+
+.restaurant--card:hover {
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .restaurant--card > img {
