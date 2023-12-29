@@ -51,6 +51,7 @@
   height: 70%;
 }
 
-.search {
-  padding: 3rem;
+.filter-btn {
+  margin: 1rem;
+  cursor: pointer;
 }
