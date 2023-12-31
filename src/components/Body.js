@@ -6,6 +6,8 @@ import { SWIGGY_API_URL } from "../utils/constants";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -18,6 +20,9 @@ const Body = () => {
     const json = await data.json();
     setListOfRestaurants(
       // we did optional chaining here
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -33,13 +38,19 @@ const Body = () => {
             className="search-box"
             placeholder="Search any restaurants"
             value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
+            onChange={(event) => {
+              setSearchText(event.target.value);
             }}
           />
           <button
             onClick={() => {
-              console.log(searchText);
+              const filteredSearch = listOfRestaurants.filter((restaurant) =>
+                restaurant.info.name
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase())
+              );
+
+              setFilteredRestaurant(filteredSearch);
             }}
           >
             Search
@@ -59,7 +70,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant--container">
-        {listOfRestaurants.map((restaurant) => (
+        {filteredRestaurant.map((restaurant) => (
           <RestuarantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
