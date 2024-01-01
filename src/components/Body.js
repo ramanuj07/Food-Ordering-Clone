@@ -18,12 +18,13 @@ const Body = () => {
     const data = await fetch(SWIGGY_API_URL);
 
     const json = await data.json();
+
+    // we did optional chaining here
     setListOfRestaurants(
-      // we did optional chaining here
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -61,9 +62,9 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter((restaurant) => {
-              return restaurant.info.avgRating > 4;
+              return restaurant.info.avgRating > 4.2;
             });
-            setListOfRestaurants(filteredList);
+            setFilteredRestaurant(filteredList);
           }}
         >
           Top Rated Restaurants
