@@ -1,3 +1,5 @@
+import User from "./User";
+
 const About = () => {
   return (
     <div>
@@ -5,6 +7,7 @@ const About = () => {
       <h2>
         This is the about us page of my website created using react-router-dom
       </h2>
+      <User />
     </div>
   );
 };
