@@ -1,5 +1,4 @@
 import React from "react";
-
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
@@ -7,12 +6,16 @@ class UserClass extends React.Component {
     this.state = {
       count: 0,
     };
-    console.log("Constructor Child");
+    console.log(this.props.name + "Constructor Child");
+  }
+
+  componentDidMount() {
+    console.log(this.props.name + "Child Component Did Mount");
   }
 
   render() {
     const { count } = this.state;
-    console.log("Render Child");
+    console.log(this.props.name + "Render Child");
     return (
       <div>
         <button

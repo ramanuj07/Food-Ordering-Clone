@@ -1,25 +1,15 @@
 import React from "react";
-import User from "./User";
 import UserClass from "./UserClass";
-
-// const About = () => {
-//   return (
-//     <div>
-//       <h1>About Us</h1>
-//       <h2>
-//         This is the about us page of my website created using react-router-dom
-//       </h2>
-//       <User name={"RJ"} roll={"80"} />
-//       <UserClass name={"Ramanuj Jindal"} class={"BE-IT 3rd year"} />
-//     </div>
-//   );
-// };
 
 class About extends React.Component {
   constructor(props) {
     super(props);
 
     console.log("Constructor Parent");
+  }
+
+  componentDidMount() {
+    console.log("Parent Component Did Mount");
   }
 
   render() {
@@ -29,6 +19,7 @@ class About extends React.Component {
         <h1>About Us</h1>
         <h2>This is the About us page of my website</h2>
         <UserClass name={"Ramanuj Jindal"} class={"BE-IT 3rd year"} />
+        <UserClass name={"Sahil Singla"} class={"BE-EEE 4th year"} />
       </div>
     );
   }
