@@ -4,22 +4,17 @@ import UserClass from "./UserClass";
 class About extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log("Constructor Parent");
-  }
-
-  componentDidMount() {
-    console.log("Parent Component Did Mount");
   }
 
   render() {
-    console.log("Render Parent");
     return (
-      <div>
-        <h1>About Us</h1>
+      <div className="p-4 m-4 border border-solid w-[25rem] mx-auto text-center">
+        <h1 className="pb-4 font-bold">About Us</h1>
         <h2>This is the About us page of my website</h2>
-        <UserClass name={"Ramanuj Jindal"} class={"BE-IT 3rd year"} />
-        <UserClass name={"Sahil Singla"} class={"BE-EEE 4th year"} />
+        <UserClass name={"Ramanuj Jindal"} class={"BE-IT"} />
+        <h3>
+          Made using <span className="font-bold">Class based components</span>
+        </h3>
       </div>
     );
   }
