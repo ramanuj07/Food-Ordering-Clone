@@ -19,4 +19,16 @@ const RestuarantCard = (props) => {
   );
 };
 
-export { RestuarantCard };
+// HOC
+export const withPromotedLabel = (RestuarantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label>Promoted</label>
+        <RestuarantCard {...props} />
+      </div>
+    );
+  };
+};
+
+export default RestuarantCard;
