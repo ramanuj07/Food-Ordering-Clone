@@ -1,10 +1,11 @@
 import RestuarantCard from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { SWIGGY_RES_API } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { withPromotedLabel } from "./RestaurantCard";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -41,6 +42,8 @@ const Body = () => {
     );
   }
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -57,7 +60,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-4 py-1 bg-red-200 m-4 rounded-lg"
+            className="search px-4 py-1 bg-red-200 m-4 rounded-lg"
             onClick={() => {
               const filteredSearch = listOfRestaurants.filter((restaurant) =>
                 restaurant.info.name
@@ -84,6 +87,18 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+
+        <div className="search p-4 m-4 flex items-center">
+          <label>Username : </label>
+          <input
+            type="text"
+            className="border border-black px-2 mx-2"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">
