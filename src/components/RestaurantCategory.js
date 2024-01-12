@@ -2,7 +2,7 @@ import ItemList from "./ItemList";
 import { useState } from "react";
 
 const RestaurantCategory = ({ resCategory }) => {
-  const { title, categories } = resCategory;
+  const { title, itemCards } = resCategory;
   const [showItems, setShowItems] = useState(false);
 
   const clickHandler = () => {
@@ -16,11 +16,11 @@ const RestaurantCategory = ({ resCategory }) => {
         onClick={clickHandler}
       >
         <span className="font-bold text-lg">
-          {title} ({categories.length})
+          {title} ({itemCards.length})
         </span>
         <span className="">⬇️</span>
       </div>
-      {showItems && <ItemList items={categories} />}
+      {showItems && <ItemList items={itemCards} />}
     </div>
   );
 };
