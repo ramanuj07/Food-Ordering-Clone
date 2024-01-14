@@ -1,12 +1,12 @@
 import { RES_IMG_BASE_URL } from "../utils/constants";
-import { addItem, removeItem, clearCart } from "../utils/cartSlice";
+import { addItem, removeItem, clearCart } from "../utils/store/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({ items }) => {
   const dispatch = useDispatch();
 
-  const handleClickItem = () => {
-    dispatch(addItem("pizza"));
+  const handleClickItem = (item) => {
+    dispatch(addItem(item));
   };
 
   return (
@@ -33,7 +33,7 @@ const ItemList = ({ items }) => {
             <div className="absolute">
               <button
                 className="px-2 mx-16 rounded-lg bg-black text-white shadow-lg"
-                onClick={handleClickItem}
+                onClick={() => handleClickItem(item)}
               >
                 Add +
               </button>

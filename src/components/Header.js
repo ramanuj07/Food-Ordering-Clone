@@ -34,14 +34,14 @@ const Header = () => {
           <li className="px-4 hover:text-red-500">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4 hover:text-red-500 font-bold">
-            <Link to="/cart">Cart ({cartItems.length} items)</Link>
-          </li>
           <li className="px-4 hover:text-red-500">
             <Link to="/grocery">Grocery</Link>
           </li>
 
           <li className="px-4 font-bold">{loggedInUser}</li>
+          <li className="px-4 hover:text-red-500 font-bold">
+            <Link to="/cart">Cart ({cartItems.length} items)</Link>
+          </li>
         </ul>
       </div>
 
